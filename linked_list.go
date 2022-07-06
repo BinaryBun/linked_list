@@ -48,26 +48,18 @@ func (l *List) popFront () {
   }
 }
 
-func (l *List) print() {
+func (l *List) print() ([]int) {
+  result := []int {}
   current := l.head
   if current != nil {
-    fmt.Print(current.value, " ")
+    result = append(result, current.value)
+    // fmt.Print(current.value, "\n")
   }
   for current.next != nil {
-    fmt.Print(current.next.value, " ")
+    result = append(result, current.next.value)
+    // fmt.Print(current.next.value, " ")
     current = current.next
   }
-}
 
-func main() {
-  data := List{}
-  data.addBack(12)
-  data.addBack(14)
-  data.addBack(5)
-  data.addBack(20)
-  data.addFront(22)
-  data.addFront(28)
-  data.popBack()
-  data.popFront()
-  data.print()
+  return result
 }
